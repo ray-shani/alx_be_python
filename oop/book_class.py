@@ -1,12 +1,13 @@
 class Book:
     """
-    A class to represent a book with title, author, and publication year.
-    It demonstrates the use of __init__, __del__, __str__, and __repr__ magic methods.
+    Represents a book with a title, author, and publication year.
+    Demonstrates Python magic methods for initialization, deletion,
+    and string representation.
     """
 
     def __init__(self, title: str, author: str, year: int):
         """
-        Constructor method to initialize a new Book instance.
+        Constructor method to initialize a Book instance.
 
         Args:
             title (str): The title of the book.
@@ -16,27 +17,28 @@ class Book:
         self.title = title
         self.author = author
         self.year = year
-        print(f"Book '{self.title}' created.") # Optional: Confirmation of creation
+        # According to the desired "Expected Output", we do not print
+        # a creation message here.
 
     def __del__(self):
         """
-        Destructor method, called when the object is about to be destroyed.
-        It prints a message indicating which book is being deleted.
+        Destructor method called when the Book object is about to be destroyed.
+        Prints a message indicating which book is being deleted.
         """
         print(f"Deleting {self.title}")
 
     def __str__(self):
         """
-        Returns a user-friendly string representation of the Book object.
+        Returns the user-friendly string representation of the Book object.
         This is what is typically seen when print() is called on the object.
         """
         return f"{self.title} by {self.author}, published in {self.year}"
 
     def __repr__(self):
         """
-        Returns an official string representation of the Book object.
-        This string should ideally be unambiguous and, if possible,
-        recreate the object when evaluated (e.g., in a debugger).
+        Returns the official string representation of the Book object.
+        This string should ideally be unambiguous and allow recreation
+        of the object. It's typically used by developers for debugging.
         """
         return f"Book('{self.title}', '{self.author}', {self.year})"
 
