@@ -1,6 +1,6 @@
 class Calculator:
     """
-    A class demonstrating the use of static methods and class methods.
+    A class demonstrating the usage of static methods and class methods.
     It performs basic arithmetic operations.
     """
 
@@ -8,37 +8,36 @@ class Calculator:
     calculation_type = "Arithmetic Operations"
 
     @staticmethod
-    def add(a: float, b: float) -> float:
+    def add(a, b):
         """
-        A static method to perform addition.
-        Static methods do not receive an implicit first argument (like self or cls).
-        They behave like regular functions, but are part of the class's namespace.
+        A static method that returns the sum of two numbers.
+        It does not require access to class-specific or instance-specific data.
 
         Args:
-            a (float): The first number.
-            b (float): The second number.
+            a (int/float): The first number.
+            b (int/float): The second number.
 
         Returns:
-            float: The sum of a and b.
+            int/float: The sum of a and b.
         """
         return a + b
 
     @classmethod
-    def multiply(cls, a: float, b: float) -> float:
+    def multiply(cls, a, b):
         """
-        A class method to perform multiplication.
-        Class methods receive the class itself as the first implicit argument (conventionally 'cls').
-        This allows them to access or modify class attributes or call other class methods.
+        A class method that returns the product of two numbers.
+        It uses the 'cls' parameter to access class attributes,
+        in this case, 'calculation_type'.
 
         Args:
-            cls: The class itself (Calculator in this case).
-            a (float): The first number.
-            b (float): The second number.
+            cls: The class itself (automatically passed).
+            a (int/float): The first number.
+            b (int/float): The second number.
 
         Returns:
-            float: The product of a and b.
+            int/float: The product of a and b.
         """
-        # Accessing a class attribute using the 'cls' parameter
+        # Accessing the class attribute using 'cls'
         print(f"Calculation type: {cls.calculation_type}")
         return a * b
 
