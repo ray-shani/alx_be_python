@@ -43,7 +43,7 @@ class TestSimpleCalculator(unittest.TestCase):
         self.assertEqual(self.calc.subtract(0, 0), 0, "Should be 0")
         self.assertEqual(self.calc.subtract(50, 100), -50, "Should be -50")
 
-    def test_multiply(self):
+    def test_multiplication(self):
         """
         Test the multiply method of SimpleCalculator.
         Covers positive numbers, negative numbers, and multiplication by zero.
