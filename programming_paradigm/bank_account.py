@@ -21,7 +21,7 @@ class BankAccount:
             raise ValueError("Deposit amount must be a positive number.")
         self.__current_balance += amount
         # This line is responsible for the output, and it prints only once per call.
-        print(f"Deposited: ${amount}")
+        print(f"Deposited: ${amount:.1f}")
 
     def withdraw(self, amount):
         """
@@ -37,7 +37,7 @@ class BankAccount:
             raise ValueError("Withdrawal amount must be a positive number.")
         if self.__current_balance >= amount:
             self.__current_balance -= amount
-            print(f"Withdrew: ${amount}")
+            print(f"Withdrew: ${amount:.1f}")
             return True
         else:
             print("Insufficient funds.")
@@ -47,4 +47,4 @@ class BankAccount:
         """
         Prints the current account balance in a user-friendly format.
         """
-        print(f"Current Balance: ${self.__current_balance}")
+        print(f"Current Balance: ${self.__current_balance:.2f}")
