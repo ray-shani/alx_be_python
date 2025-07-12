@@ -28,7 +28,7 @@ class TestSimpleCalculator(unittest.TestCase):
         self.assertEqual(self.calc.add(0, 0), 0, "Should be 0")
         self.assertEqual(self.calc.add(100, -50), 50, "Should be 50")
 
-    def test_subtract(self):
+    def test_subtraction(self): # Renamed from test_subtract
         """
         Test the subtract method of SimpleCalculator.
         Covers positive numbers, negative numbers, and zero.
