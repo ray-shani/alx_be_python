@@ -1,3 +1,5 @@
+import sys # Import the sys module for precise output control
+
 class BankAccount:
     """
     A class to represent a bank account, encapsulating balance and banking operations.
@@ -12,7 +14,8 @@ class BankAccount:
                                             Defaults to 0 if not provided.
         """
         if not isinstance(initial_balance, (int, float)) or initial_balance < 0:
-            print("Warning: Initial balance must be a non-negative numeric value. Setting to 0.")
+            # Using sys.stdout.write for precise output without automatic newlines
+            sys.stdout.write("Warning: Initial balance must be a non-negative numeric value. Setting to 0.")
             self._account_balance = 0.0
         else:
             self._account_balance = float(initial_balance) # Store balance as a float
@@ -25,11 +28,13 @@ class BankAccount:
             amount (float or int): The amount to deposit. Must be positive.
         """
         if not isinstance(amount, (int, float)) or amount <= 0:
-            print("Error: Deposit amount must be a positive numeric value.")
+            # Using sys.stdout.write for precise output without automatic newlines
+            sys.stdout.write("Error: Deposit amount must be a positive numeric value.")
             return
         self._account_balance += float(amount)
         # Formatted to ensure consistent decimal representation (e.g., 67.0)
-        print(f"Deposited: ${float(amount)}")
+        # Using sys.stdout.write for exact control over output, no trailing newline
+        sys.stdout.write(f"Deposited: ${float(amount)}")
 
     def withdraw(self, amount):
         """
@@ -42,18 +47,21 @@ class BankAccount:
             bool: True if the withdrawal was successful, False otherwise.
         """
         if not isinstance(amount, (int, float)) or amount <= 0:
-            print("Error: Withdrawal amount must be a positive numeric value.")
+            # Using sys.stdout.write for precise output without automatic newlines
+            sys.stdout.write("Error: Withdrawal amount must be a positive numeric value.")
             return False
 
         if self._account_balance >= amount:
             self._account_balance -= float(amount)
             # Formatted to ensure consistent decimal representation (e.g., 67.0)
-            print(f"Withdrew: ${float(amount)}")
+            # Using sys.stdout.write for exact control over output, no trailing newline
+            sys.stdout.write(f"Withdrew: ${float(amount)}")
             return True
         else:
             # Formatted to ensure consistent decimal representation
-            print(f"Insufficient funds. Current balance: ${float(self._account_balance)}. "
-                  f"Attempted withdrawal: ${float(amount)}")
+            # Using sys.stdout.write for exact control over output, no trailing newline
+            sys.stdout.write(f"Insufficient funds. Current balance: ${float(self._account_balance)}. "
+                             f"Attempted withdrawal: ${float(amount)}")
             return False
 
     def display_balance(self):
@@ -61,5 +69,6 @@ class BankAccount:
         Prints the current account balance in a user-friendly format.
         """
         # Formatted to ensure consistent decimal representation
-        print(f"Current Balance: ${float(self._account_balance)}")
+        # Using sys.stdout.write for exact control over output, no trailing newline
+        sys.stdout.write(f"Current Balance: ${float(self._account_balance)}")
 
