@@ -8,7 +8,8 @@ class BankAccount:
         """
         if not isinstance(initial_balance, (int, float)) or initial_balance < 0:
             raise ValueError("Initial balance must be a non-negative number.")
-        self.__account_balance = initial_balance  # Encapsulation: use a private attribute
+        # Changed the encapsulated attribute name from __account_balance to __current_balance
+        self.__current_balance = initial_balance
 
     def deposit(self, amount):
         """
@@ -19,7 +20,7 @@ class BankAccount:
         """
         if not isinstance(amount, (int, float)) or amount <= 0:
             raise ValueError("Deposit amount must be a positive number.")
-        self.__account_balance += amount
+        self.__current_balance += amount
         print(f"Deposited ${amount:.2f}.")
         self.display_balance()
 
@@ -35,8 +36,8 @@ class BankAccount:
         """
         if not isinstance(amount, (int, float)) or amount <= 0:
             raise ValueError("Withdrawal amount must be a positive number.")
-        if self.__account_balance >= amount:
-            self.__account_balance -= amount
+        if self.__current_balance >= amount:
+            self.__current_balance -= amount
             print(f"Withdrew ${amount:.2f}.")
             self.display_balance()
             return True
@@ -49,5 +50,5 @@ class BankAccount:
         """
         Prints the current account balance in a user-friendly format.
         """
-        # Changed the display string from "Current balance:" to "Account balance:"
-        print(f"Account balance: ${self.__account_balance:.2f}")
+        # Displaying the value of __current_balance and using the phrase "Current Balance:"
+        print(f"Current Balance: ${self.__current_balance:.2f}")
