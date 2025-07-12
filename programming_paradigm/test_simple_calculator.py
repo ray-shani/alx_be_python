@@ -59,7 +59,7 @@ class TestSimpleCalculator(unittest.TestCase):
         self.assertEqual(self.calc.multiply(5, 0), 0, "Should be 0")
         self.assertEqual(self.calc.multiply(-10, 0), 0, "Should be 0")
 
-    def test_divide(self):
+    def test_division(self):
         """
         Test the divide method of SimpleCalculator.
         Covers normal division and specifically handles division by zero.
