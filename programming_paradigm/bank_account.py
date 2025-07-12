@@ -36,12 +36,11 @@ class BankAccount:
             raise ValueError("Withdrawal amount must be a positive number.")
         if self.__current_balance >= amount:
             self.__current_balance -= amount
-            # Changed to print only the withdrawal confirmation message
-            print(f"Withdrew: ${amount:.1f}")  # Adjusted format to .1f
+            print(f"Withdrew: ${amount:.1f}")
             return True
         else:
+            # Only print "Insufficient funds." here, without displaying balance.
             print("Insufficient funds.")
-            self.display_balance() # Still displays balance on insufficient funds
             return False
 
     def display_balance(self):
