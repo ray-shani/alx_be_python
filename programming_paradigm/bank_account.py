@@ -28,8 +28,8 @@ class BankAccount:
             print("Error: Deposit amount must be a positive numeric value.")
             return
         self._account_balance += float(amount)
-        # Removed self.display_balance() to print only once
-        print(f"Deposited: ${amount:.2f}")
+        # Formatted to ensure consistent decimal representation (e.g., 67.0)
+        print(f"Deposited: ${float(amount)}")
 
     def withdraw(self, amount):
         """
@@ -47,18 +47,19 @@ class BankAccount:
 
         if self._account_balance >= amount:
             self._account_balance -= float(amount)
-            # Removed self.display_balance() to print only once
-            print(f"Withdrew: ${amount:.2f}")
+            # Formatted to ensure consistent decimal representation (e.g., 67.0)
+            print(f"Withdrew: ${float(amount)}")
             return True
         else:
-            # Removed self.display_balance() to print only once
-            print(f"Insufficient funds. Current balance: ${self._account_balance:.2f}. "
-                  f"Attempted withdrawal: ${amount:.2f}")
+            # Formatted to ensure consistent decimal representation
+            print(f"Insufficient funds. Current balance: ${float(self._account_balance)}. "
+                  f"Attempted withdrawal: ${float(amount)}")
             return False
 
     def display_balance(self):
         """
         Prints the current account balance in a user-friendly format.
         """
-        print(f"Current Balance: ${self._account_balance:.2f}")
+        # Formatted to ensure consistent decimal representation
+        print(f"Current Balance: ${float(self._account_balance)}")
 
