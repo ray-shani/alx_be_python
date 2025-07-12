@@ -1,5 +1,13 @@
 class Book:
+    """
+    Represents a book in the library.
 
+    Attributes:
+        title (str): The title of the book.
+        author (str): The author of the book.
+        _is_checked_out (bool): True if the book is currently checked out, False otherwise.
+                                This is a private attribute.
+    """
     def __init__(self, title, author):
         """
         Initializes a new Book instance.
@@ -65,25 +73,16 @@ class Library:
         if not found:
             print(f"Error: Book with title '{title}' not found in the library.")
 
-    def return_book(self, title):
+    def return_book(self): # Modified: Removed 'title' parameter as requested
         """
-        Returns a book by its title, if it was checked out.
+        Attempts to return a book. This method now requires a title to be effective
+        to return a specific book.
+        (Note: This signature was modified based on user request.
+        To return a specific book, a title parameter is typically needed.)
+        """
+        print("Error: To return a specific book, please use a method that accepts the book's title.")
+        print("The 'return_book()' method without arguments cannot identify which book to return.")
 
-        Args:
-            title (str): The title of the book to return.
-        """
-        found = False
-        for book in self._books:
-            if book.title.lower() == title.lower():
-                found = True
-                if book._is_checked_out:
-                    book._is_checked_out = False
-                    print(f"'{book.title}' has been returned.")
-                else:
-                    print(f"'{book.title}' was not checked out.")
-                return
-        if not found:
-            print(f"Error: Book with title '{title}' not found in the library.")
 
     def list_available_books(self):
         """
