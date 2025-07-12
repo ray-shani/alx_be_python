@@ -28,8 +28,8 @@ class BankAccount:
             print("Error: Deposit amount must be a positive numeric value.")
             return
         self._account_balance += float(amount)
+        # Removed self.display_balance() to print only once
         print(f"Deposited: ${amount:.2f}")
-        self.display_balance()
 
     def withdraw(self, amount):
         """
@@ -47,10 +47,11 @@ class BankAccount:
 
         if self._account_balance >= amount:
             self._account_balance -= float(amount)
+            # Removed self.display_balance() to print only once
             print(f"Withdrew: ${amount:.2f}")
-            self.display_balance()
             return True
         else:
+            # Removed self.display_balance() to print only once
             print(f"Insufficient funds. Current balance: ${self._account_balance:.2f}. "
                   f"Attempted withdrawal: ${amount:.2f}")
             return False
