@@ -20,6 +20,7 @@ class BankAccount:
         if not isinstance(amount, (int, float)) or amount <= 0:
             raise ValueError("Deposit amount must be a positive number.")
         self.__current_balance += amount
+        # This line is responsible for the output, and it prints only once per call.
         print(f"Deposited: ${amount:.1f}")
 
     def withdraw(self, amount):
@@ -39,7 +40,6 @@ class BankAccount:
             print(f"Withdrew: ${amount:.1f}")
             return True
         else:
-            # Only print "Insufficient funds." here, without displaying balance.
             print("Insufficient funds.")
             return False
 
